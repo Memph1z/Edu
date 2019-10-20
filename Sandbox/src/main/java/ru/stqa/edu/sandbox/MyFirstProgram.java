@@ -8,25 +8,14 @@ public class MyFirstProgram {
 		hello("user");
 		hello("Memph1z");
 
-		double l = 5;
-		System.out.println("Площадь квадата со стороной " + l + " равна " + arear(l));
+		Square s = new Square(8);
+		System.out.println("Площадь квадата со стороной " + s.l + " равна " + s.arear());
 
-		double a = 6.0;
-		double b = 4.0;
-		System.out.println("Площадь прямоугольника со сторонами " + a + " и " + b + " равна " + area(a, b));
+		Rectangle r = new Rectangle(4, 6);
+		System.out.println("Площадь прямоугольника со сторонами " + r.a + " и " + r.b + " равна " + r.area());
 }
-	public static void hello(String somebody){
+	public static void hello(String somebody) {
 
 		System.out.println("Hello, " + somebody + "!");
 	}
-
-	public static double arear(double len){
-
-		return len * len;
-	}
-
-	public static double area(double a, double b){
-		return a * b;
-	}
-
 }
