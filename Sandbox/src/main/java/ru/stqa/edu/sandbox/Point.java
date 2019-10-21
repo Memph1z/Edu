@@ -12,4 +12,8 @@ public class Point {
 
   }
 
+  public double distance(Point p2) {
+    return Math.sqrt(((p2.c - c) * (p2.c - c)) + ((p2.d - d) * (p2.d - d)));
+  }
+
 }
