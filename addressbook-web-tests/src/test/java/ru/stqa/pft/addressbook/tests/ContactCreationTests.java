@@ -50,6 +50,7 @@ public class ContactCreationTests extends TestBase {
 
   @Test(dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) throws Exception {
+    app.goTo().returnToHomePage();
     Contacts before = app.contact().all();
     app.contact().create(contact, true);
     assertThat(app.contact().count(), equalTo(before.size() + 1));

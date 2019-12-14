@@ -10,6 +10,18 @@ test {
     useTestNG()
 }
 
+task testContacts(type: Test) {
+    useTestNG() {
+         suites 'src/test/resources/testng-contacts.xml'
+    }
+}
+
+task testGroups(type: Test) {
+    useTestNG() {
+        suites 'src/test/resources/testng-groups.xml'
+    }
+}
+
 dependencies {
     compile 'org.testng:testng:7.0.0'
     compile 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-3'
