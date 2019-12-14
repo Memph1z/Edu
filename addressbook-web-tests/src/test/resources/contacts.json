@@ -1,0 +1,26 @@
+[
+  {
+    "firstname": "name 0",
+    "lastname": "lastname 0",
+    "address": "улица Пушкина, дом Колотушкина 0",
+    "homePhone": "phone 0",
+    "email": "email 0",
+    "group": "test1"
+  },
+  {
+    "firstname": "name 1",
+    "lastname": "lastname 1",
+    "address": "улица Пушкина, дом Колотушкина 1",
+    "homePhone": "phone 1",
+    "email": "email 1",
+    "group": "test1"
+  },
+  {
+    "firstname": "name 2",
+    "lastname": "lastname 2",
+    "address": "улица Пушкина, дом Колотушкина 2",
+    "homePhone": "phone 2",
+    "email": "email 2",
+    "group": "test1"
+  }
+]

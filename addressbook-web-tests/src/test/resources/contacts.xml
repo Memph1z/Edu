@@ -1,0 +1,29 @@
+<list>
+  <contact>
+    <firstname>name 0</firstname>
+    <lastname>lastname 0</lastname>
+    <address>улица Пушкина, дом Колотушкина 0</address>
+    <homePhone>phone 0</homePhone>
+    <email>email 0</email>
+    <group>test1</group>
+    <photo>src/test/resources/photo.jpg</photo>
+  </contact>
+  <contact>
+    <firstname>name 1</firstname>
+    <lastname>lastname 1</lastname>
+    <address>улица Пушкина, дом Колотушкина 1</address>
+    <homePhone>phone 1</homePhone>
+    <email>email 1</email>
+    <group>test1</group>
+    <photo>src/test/resources/photo.jpg</photo>
+  </contact>
+  <contact>
+    <firstname>name 2</firstname>
+    <lastname>lastname 2</lastname>
+    <address>улица Пушкина, дом Колотушкина 2</address>
+    <homePhone>phone 2</homePhone>
+    <email>email 2</email>
+    <group>test1</group>
+    <photo>src/test/resources/photo.jpg</photo>
+  </contact>
+</list>
