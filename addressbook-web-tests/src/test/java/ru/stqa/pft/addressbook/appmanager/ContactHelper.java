@@ -25,10 +25,10 @@ public class ContactHelper extends HelperBase {
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
     type(By.name("home"), contactData.getHomePhone());
-    type(By.name("mobile"), contactData.getMobilePhone());
-    type(By.name("work"), contactData.getWorkPhone());
+    //type(By.name("mobile"), contactData.getMobilePhone());
+   // type(By.name("work"), contactData.getWorkPhone());
     type(By.name("email"), contactData.getEmail());
-    attach(By.name("photo"), contactData.getPhoto());
+    //attach(By.name("photo"), contactData.getPhoto());
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {

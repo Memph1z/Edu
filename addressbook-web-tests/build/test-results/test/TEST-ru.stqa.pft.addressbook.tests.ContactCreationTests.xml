@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.tests.ContactCreationTests" tests="1" skipped="1" failures="0" errors="0" timestamp="2019-12-16T10:45:00" hostname="Vadims-MacBook-Pro.local" time="22.906">
+  <properties/>
+  <testcase name="testContactCreation[0](ContactData{id=2147483647, firstname='name 0', lastname='lastname 0', address='улица Пушкина, дом Колотушкина 0', homePhone='phone 0', email='email 0'})" classname="ru.stqa.pft.addressbook.tests.ContactCreationTests" time="22.906">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[13:45:00.785 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testContactCreation with parameters [ContactData{id=2147483647, firstname='name 0', lastname='lastname 0', address='улица Пушкина, дом Колотушкина 0', homePhone='phone 0', email='email 0'}]
+Hibernate: select contactdat0_.id as id1_0_, contactdat0_.address as address2_0_, contactdat0_.email as email3_0_, contactdat0_.email2 as email4_0_, contactdat0_.email3 as email5_0_, contactdat0_.firstname as firstnam6_0_, contactdat0_.home as home7_0_, contactdat0_.lastname as lastname8_0_, contactdat0_.mobile as mobile9_0_, contactdat0_.photo as photo10_0_, contactdat0_.work as work11_0_ from addressbook contactdat0_ where deprecated='0000-00-00'
+Hibernate: select contactdat0_.id as id1_0_, contactdat0_.address as address2_0_, contactdat0_.email as email3_0_, contactdat0_.email2 as email4_0_, contactdat0_.email3 as email5_0_, contactdat0_.firstname as firstnam6_0_, contactdat0_.home as home7_0_, contactdat0_.lastname as lastname8_0_, contactdat0_.mobile as mobile9_0_, contactdat0_.photo as photo10_0_, contactdat0_.work as work11_0_ from addressbook contactdat0_ where deprecated='0000-00-00'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
