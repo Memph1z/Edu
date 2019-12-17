@@ -20,7 +20,8 @@ public class ContactPhoneTests extends TestBase {
               .withFirstname("Господин").withLastname("Никакущий").withAddress("улица Провинциалов")
               .withHomePhone("111").withMobilePhone("222").withWorkPhone("333")
               .withEmail("nikak@test.org").withEmail2("nikak2@test.org").withEmail3("nikak3@test.org")
-              .withGroup("test1"), true);
+              //.withGroup("test1")
+              , true);
     }
   }
   @Test
