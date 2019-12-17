@@ -1,0 +1,37 @@
+apply plugin: 'java'
+
+
+repositories {
+
+    mavenCentral()
+}
+
+test {
+    useTestNG()
+}
+
+task testContacts(type: Test) {
+    useTestNG() {
+         suites 'src/test/resources/testng.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
+    if (project.hasProperty('verifyUI')) {
+        systemProperty 'verifyUI', "${verifyUI}"
+    }
+}
+
+dependencies {
+    compile 'org.testng:testng:7.0.0'
+    compile 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-3'
+    compile 'org.hamcrest:java-hamcrest:2.0.0.0'
+}
+
+//tasks.withType(Test) {
+//    scanForTestClasses = false
+//    include "**/*Tests.class" // whatever Ant pattern matches your test class files
+//}
