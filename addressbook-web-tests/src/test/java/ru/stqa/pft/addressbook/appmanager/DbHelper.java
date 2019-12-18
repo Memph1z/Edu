@@ -39,5 +39,22 @@ public class DbHelper {
     session.close();
     return new Contacts(contact);
   }
+  public ContactData getContactById(int id) {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    ContactData contact = session.get(ContactData.class, id);
+    session.getTransaction().commit();
+    session.close();
+    return contact;
+  }
+  public ContactData selectContactWithMaxId() {
+    Session session = sessionFactory.openSession();
+    session.beginTransaction();
+    ContactData result = (ContactData) session.createQuery("from ContactData where deprecated = '0000-00-00' and " +
+            "id = (select max(id) from ContactData)").getSingleResult();
+    session.getTransaction().commit();
+    session.close();
+    return result;
+  }
   }
 

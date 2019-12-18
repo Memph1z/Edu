@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.tests.DbConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-17T14:22:42" hostname="Vadims-MacBook-Pro.local" time="0.016">
-  <properties/>
-  <testcase name="testDbConnection" classname="ru.stqa.pft.addressbook.tests.DbConnectionTest" time="0.016"/>
-  <system-out><![CDATA[[GroupData{id='91', name='test 2'}, GroupData{id='89', name='test 0'}, GroupData{id='92', name='test 0'}, GroupData{id='58', name='test2'}, GroupData{id='93', name='test 1'}, GroupData{id='94', name='test 2'}, GroupData{id='71', name='test 0'}, GroupData{id='72', name='test 1'}, GroupData{id='82', name='test2'}, GroupData{id='73', name='test 2'}, GroupData{id='80', name='test2'}, GroupData{id='34', name='test1'}, GroupData{id='74', name='test 0'}, GroupData{id='75', name='test 1'}, GroupData{id='76', name='test 2'}, GroupData{id='69', name='test2'}, GroupData{id='70', name='test2'}, GroupData{id='84', name='test 1'}, GroupData{id='85', name='test 2'}, GroupData{id='86', name='test 0'}, GroupData{id='87', name='test 1'}, GroupData{id='83', name='test 0'}, GroupData{id='88', name='test 2'}]
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

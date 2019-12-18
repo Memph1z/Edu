@@ -1,57 +1,88 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
-import ru.stqa.pft.addressbook.tests.TestBase;
-
-import java.io.File;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactInGroupTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
+    if (app.db().groups().size() == 0) {
+      app.group().create(new GroupData().withName("test 2").withFooter("footer 1"));
+    }
     if (app.db().contacts().size() == 0) {
-      Groups groups = app.db().groups();
-      if (groups.size() == 0) {
-        app.group().create(new GroupData().withName("test 2").withFooter("footer 1"));
-      }
       app.contact().create(new ContactData()
               .withFirstname("Господин").withLastname("Никакущий").withAddress("улица Провинциалов")
               .withHomePhone("111").withMobilePhone("222").withWorkPhone("333")
-              .withEmail("nikak@test.org").inGroup(groups.iterator().next()), true);
+              .withEmail("nikak@test.org"), true);
     }
   }
 
   @Test
-  public void testAddContactInGroup() {
+  public void testAddContact() {
+    ContactData foundContact = null;
+    GroupData foundGroup = null;
+    for (ContactData contact : app.db().contacts()) {
+      Groups contactGroups = contact.getGroups();
+      for (GroupData group : app.db().groups()) {
+        if (!contactGroups.contains(group)) {
+          foundContact = contact;
+          foundGroup = group;
+          break;
+        }
+      }
+      if (foundContact != null) {
+        break;
+      }
+    }
+    if (foundContact == null) {
+      app.contact().create(new ContactData()
+              .withFirstname("Господин").withLastname("Никакущий").withAddress("улица Провинциалов")
+              .withHomePhone("111").withMobilePhone("222").withWorkPhone("333")
+              .withEmail("nikak@test.org"), true);
+      ContactData contact = app.db().selectContactWithMaxId();
+      app.contact().selectContactById(contact.getId());
+      GroupData firstGroup = app.db().groups().iterator().next();
+      app.contact().selectGroup(firstGroup);
+      app.contact().addInGroup();
+      contact = app.db().getContactById(contact.getId());
+      Assert.assertTrue(contact.getGroups().contains(firstGroup));
+    } else {
+      app.contact().selectContactById(foundContact.getId());
+      app.contact().selectGroup(foundGroup);
+      app.contact().addInGroup();
 
-    Groups groupsBefore = app.db().groups();
-    ContactData contact = app.db().contacts().iterator().next();
-    GroupData group = app.db().groups().iterator().next();
-    app.goTo().returnToHomePage();
-    app.contact().addContactToGroup(contact.getId(), group.getId());
-    Groups groupsAfter = app.db().groups().withAdded(group);
-    assertThat(groupsAfter, equalTo(groupsBefore.withAdded(group)));
+      foundContact = app.db().getContactById(foundContact.getId());
+      Assert.assertTrue(foundContact.getGroups().contains(foundGroup));
+    }
   }
 
   @Test
-  public void testRemoveContactFromGroup() {
-    Groups groupsBefore = app.db().groups();
-    ContactData contact = app.db().contacts().iterator().next();
-    GroupData group = app.db().groups().iterator().next();
-    if (!contact.getGroups().contains(group)) {
-      app.contact().addContactToGroup(contact.getId(), group.getId());
+  public void testDeleteContact() {
+    ContactData contact = app.db().contacts().stream().filter(contactList -> contactList.getGroups().size() > 0).findFirst().orElse(null);
+    if (contact == null) {
+      ContactData firstContact = app.db().contacts().iterator().next();
+      GroupData firstGroup = app.db().groups().iterator().next();
+      app.contact().selectContactById(firstContact.getId());
+      app.contact().selectGroup(firstGroup);
+      app.contact().addInGroup();
+      app.contact().returnToHomePage();
+      firstContact = app.db().getContactById(firstContact.getId());
+      Assert.assertTrue(firstContact.getGroups().contains(firstGroup));
+      app.contact().selectContactFromGroup(firstContact, firstGroup);
+      app.contact().deleteFromGroup();
+      firstContact = app.db().getContactById(firstContact.getId());
+      Assert.assertFalse(firstContact.getGroups().contains(firstGroup));
+    } else {
+      GroupData firstGroup = contact.getGroups().iterator().next();
+      app.contact().selectContactFromGroup(contact, firstGroup);
+      app.contact().deleteFromGroup();
+      contact = app.db().getContactById(contact.getId());
+      Assert.assertFalse(contact.getGroups().contains(firstGroup));
     }
-    app.goTo().returnToHomePage();
-    app.contact().deleteContactFromGroup(contact.getId(), group.getId());
-    Groups groupsAfter = app.db().groups().without(group);
-    assertThat(groupsAfter, equalTo(groupsBefore.without(group)));
   }
-
 }

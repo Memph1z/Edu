@@ -163,9 +163,6 @@ public class ContactData {
     return new Groups(groups);
   }
 
-  //public String getGroup() {
-//    return group;
-//  }
   public String getAllPhones() {
     return allPhones;
   }
