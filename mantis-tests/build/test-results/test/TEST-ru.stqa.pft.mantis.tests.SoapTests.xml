@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.mantis.tests.SoapTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-12-18T21:03:54" hostname="Vadims-MacBook-Pro.local" time="1.403">
+  <properties/>
+  <testcase name="testCreateIssue" classname="ru.stqa.pft.mantis.tests.SoapTests" time="1.249"/>
+  <testcase name="testGetProjects" classname="ru.stqa.pft.mantis.tests.SoapTests" time="0.146"/>
+  <system-out><![CDATA[1
+test
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
